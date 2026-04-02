@@ -1,4 +1,5 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "vaeyxj-claude-text2image",
   "owner": {
     "name": "yuxijian"
@@ -9,7 +10,7 @@
   "plugins": [
     {
       "name": "claude-text2image",
-      "source": ".",
+      "source": "./",
       "description": "Text-to-image generation using nanobanana API (Gemini 2.5 Flash Image). Use /draw to generate images from text prompts.",
       "version": "1.0.0",
       "category": "productivity",
