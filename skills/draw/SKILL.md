@@ -1,13 +1,13 @@
 ---
 name: draw
 description: Generate images from text prompts using AI. Use /draw followed by a description of the image you want to create.
-argument-hint: <prompt> [--ratio 16:9|1:1|9:16|4:3|3:4] [--size 1k|2k]
+argument-hint: <prompt> [--model 香蕉|香蕉pro|香蕉2] [--ratio 16:9|1:1|9:16|4:3|3:4] [--size 1k|2k]
 allowed-tools: [Bash, Read]
 ---
 
 # Draw - AI Image Generation
 
-Generate images from text descriptions using the nanobanana API (Gemini 2.5 Flash Image model).
+Generate images from text descriptions using the nanobanana API. Supports multiple Gemini image models.
 
 ## Arguments
 
@@ -21,6 +21,11 @@ When this command is invoked, follow these steps:
 
 Extract from `$ARGUMENTS`:
 - **prompt** (required): The text description of the image. This is everything except the optional flags.
+- **--model** (optional): Model selection. Supported values:
+  - `香蕉` — gemini-2.5-flash-image (基础模型，速度快)
+  - `香蕉pro` — gemini-3-pro-image-preview (最佳质量)
+  - `香蕉2` — gemini-3.1-flash-image-preview (新一代快速模型)
+  - Default: `香蕉` (gemini-2.5-flash-image)
 - **--ratio** (optional): Aspect ratio. Supported values: `16:9`, `1:1`, `9:16`, `4:3`, `3:4`. Default: `16:9`
 - **--size** (optional): Image size. Supported values: `1k`, `2k`. Default: `1k`
 
@@ -30,8 +35,13 @@ If no prompt is provided, ask the user what image they want to generate.
 
 Run the generation script using Bash:
 
+Map the `--model` value to the actual model ID:
+- `香蕉` (or not specified) → `gemini-2.5-flash-image`
+- `香蕉pro` → `gemini-3-pro-image-preview`
+- `香蕉2` → `gemini-3.1-flash-image-preview`
+
 ```bash
-bash "${CLAUDE_SKILL_DIR}/scripts/generate-image.sh" "<prompt>" "<aspect_ratio>" "<image_size>"
+bash "${CLAUDE_SKILL_DIR}/scripts/generate-image.sh" "<prompt>" "<aspect_ratio>" "<image_size>" "<model_id>"
 ```
 
 The script will:
@@ -73,4 +83,6 @@ The API key must be set as the environment variable `NANOBANANA_API_KEY`. Config
 /draw 白玉兰摄影
 /draw a cat sitting on the moon --ratio 1:1
 /draw 赛博朋克城市夜景 --ratio 16:9 --size 2k
+/draw 水墨山水画 --model 香蕉pro
+/draw pixel art dragon --model 香蕉2 --ratio 1:1
 ```

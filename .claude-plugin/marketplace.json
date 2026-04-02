@@ -11,7 +11,7 @@
     {
       "name": "claude-text2image",
       "source": "./",
-      "description": "Text-to-image generation using nanobanana API (Gemini 2.5 Flash Image). Use /draw to generate images from text prompts.",
+      "description": "Text-to-image generation using nanobanana API with multiple Gemini image models. Use /draw to generate images from text prompts.",
       "version": "1.0.0",
       "category": "productivity",
       "tags": ["image", "draw", "ai-art"]

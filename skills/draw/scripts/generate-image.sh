@@ -1,12 +1,13 @@
 #!/bin/bash
 # generate-image.sh - Call nanobanana API to generate images from text prompts
-# Usage: generate-image.sh "<prompt>" [aspect_ratio] [image_size]
+# Usage: generate-image.sh "<prompt>" [aspect_ratio] [image_size] [model]
 
 set -euo pipefail
 
 PROMPT="${1:?Error: prompt is required}"
 ASPECT_RATIO="${2:-16:9}"
 IMAGE_SIZE="${3:-1k}"
+MODEL="${4:-gemini-2.5-flash-image}"
 
 # Validate API key
 if [ -z "${NANOBANANA_API_KEY:-}" ]; then
@@ -16,7 +17,7 @@ if [ -z "${NANOBANANA_API_KEY:-}" ]; then
   exit 1
 fi
 
-API_URL="https://new.suxi.ai/v1beta/models/gemini-2.5-flash-image:generateContent"
+API_URL="https://new.suxi.ai/v1beta/models/${MODEL}:generateContent"
 
 # Create output directory
 OUTPUT_DIR="$HOME/Pictures/claude-draws"
