@@ -31,10 +31,8 @@ If no prompt is provided, ask the user what image they want to generate.
 Run the generation script using Bash:
 
 ```bash
-bash "PLUGIN_DIR/skills/draw/scripts/generate-image.sh" "<prompt>" "<aspect_ratio>" "<image_size>"
+bash "${CLAUDE_SKILL_DIR}/scripts/generate-image.sh" "<prompt>" "<aspect_ratio>" "<image_size>"
 ```
-
-Replace `PLUGIN_DIR` with the actual directory of this plugin: `/Users/yuxijian/claudeProjects/claude_text2image`
 
 The script will:
 - Call the nanobanana API with the prompt

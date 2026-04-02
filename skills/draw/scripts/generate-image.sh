@@ -59,7 +59,6 @@ if echo "$RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); sys.e
 fi
 
 # Extract base64 image data from response
-# The response contains candidates[].content.parts[] with inlineData.data
 IMAGE_DATA=$(echo "$RESPONSE" | python3 -c "
 import sys, json
 data = json.load(sys.stdin)
