@@ -4,43 +4,23 @@ Claude Code AI 绘画插件，通过 `/draw` 命令即可生成图片。基于 n
 
 ## 安装
 
-### 方式一：手动安装（推荐）
+### 1. 添加 Marketplace 并安装插件
 
-1. 克隆仓库：
+在 Claude Code 中运行：
 
-```bash
-git clone https://github.com/vaeyxj/claude_text2image.git
+```
+/plugin marketplace add vaeyxj/claude_text2image
+/plugin install claude-text2image@vaeyxj-claude-text2image
 ```
 
-2. 将 skill 目录复制到 Claude Code skills 目录：
+或者通过 CLI：
 
 ```bash
-# 用户级安装（所有项目可用）
-cp -r claude_text2image/skills/draw ~/.claude/skills/
-
-# 或项目级安装（仅当前项目可用）
-cp -r claude_text2image/skills/draw .claude/skills/
+claude plugin marketplace add vaeyxj/claude_text2image
+claude plugin install claude-text2image@vaeyxj-claude-text2image
 ```
 
-3. 配置 API Key（见下方）
-
-### 方式二：直接下载 skill
-
-如果不想克隆整个仓库，可以只下载 skill 目录：
-
-```bash
-mkdir -p ~/.claude/skills/draw/scripts
-
-curl -sL https://raw.githubusercontent.com/vaeyxj/claude_text2image/main/skills/draw/SKILL.md \
-  -o ~/.claude/skills/draw/SKILL.md
-
-curl -sL https://raw.githubusercontent.com/vaeyxj/claude_text2image/main/skills/draw/scripts/generate-image.sh \
-  -o ~/.claude/skills/draw/scripts/generate-image.sh
-
-chmod +x ~/.claude/skills/draw/scripts/generate-image.sh
-```
-
-### 配置 API Key
+### 2. 配置 API Key
 
 在 `~/.claude/settings.json` 的 `env` 中添加你的 nanobanana API Key：
 

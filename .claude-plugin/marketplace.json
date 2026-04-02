@@ -1,0 +1,19 @@
+{
+  "name": "vaeyxj-claude-text2image",
+  "owner": {
+    "name": "yuxijian"
+  },
+  "metadata": {
+    "description": "AI image generation plugin for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "claude-text2image",
+      "source": ".",
+      "description": "Text-to-image generation using nanobanana API (Gemini 2.5 Flash Image). Use /draw to generate images from text prompts.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "tags": ["image", "draw", "ai-art"]
+    }
+  ]
+}
